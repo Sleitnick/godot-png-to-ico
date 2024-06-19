@@ -1,8 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://db65jnk2v2dr7"]
+[gd_scene load_steps=5 format=3 uid="uid://db65jnk2v2dr7"]
 
 [ext_resource type="Script" path="res://addons/png_to_ico/scripts/image_item.gd" id="1_7xvli"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qqh1n"]
+
+[sub_resource type="SystemFont" id="SystemFont_vh0dx"]
+font_names = PackedStringArray("Monospace")
+
+[sub_resource type="SystemFont" id="SystemFont_rroim"]
 
 [node name="ImageItem" type="HBoxContainer"]
 script = ExtResource("1_7xvli")
@@ -12,6 +17,19 @@ layout_mode = 2
 texture = SubResource("PlaceholderTexture2D_qqh1n")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="FilenameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("SystemFont_vh0dx")
+text = "Label"
+
+[node name="SizeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.45098)
+theme_override_fonts/font = SubResource("SystemFont_rroim")
 text = "Label"

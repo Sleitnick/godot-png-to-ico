@@ -5,8 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbqf1g2bfw75c" path="res://addons/png_to_ico/scenes/export_file_dialog.tscn" id="3_nfsnh"]
 [ext_resource type="Script" path="res://addons/png_to_ico/scripts/select_button.gd" id="4_3m486"]
 
-[node name="IcoMain" type="Control"]
-layout_mode = 3
+[node name="IcoMain" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,34 +16,35 @@ _image_item_prefab = ExtResource("2_edw5i")
 _export_image_dialog_prefab = ExtResource("3_nfsnh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 120.0
-grow_horizontal = 2
+layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-text = "ICO Creator"
+text = "PNG to ICO"
+horizontal_alignment = 1
 
-[node name="SelectButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelectButton" type="Button" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Select Images"
 script = ExtResource("4_3m486")
 
-[node name="ImagesContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ImagesContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ExportButton" type="Button" parent="VBoxContainer"]
+[node name="ExportButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 disabled = true
-text = "Export..."
+text = "Export ICO"
 
-[connection signal="files_selected" from="VBoxContainer/SelectButton" to="." method="_on_select_button_files_selected"]
-[connection signal="pressed" from="VBoxContainer/SelectButton" to="VBoxContainer/SelectButton" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="files_selected" from="VBoxContainer/VBoxContainer/SelectButton" to="." method="_on_select_button_files_selected"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/SelectButton" to="VBoxContainer/VBoxContainer/SelectButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]

@@ -13,7 +13,8 @@ var _timer: Timer = null
 
 
 @onready var _texture_rect: TextureRect = $"TextureRect"
-@onready var _label: Label = $"Label"
+@onready var _filename_label: Label = $"VBoxContainer/FilenameLabel"
+@onready var _size_label: Label = $"VBoxContainer/SizeLabel"
 
 
 func _ready():
@@ -30,7 +31,7 @@ func _on_set():
 		_timer.queue_free()
 		_timer = null
 	
-	if _image_path == "" or (not _texture_rect) or (not _label):
+	if _image_path == "" or (not _texture_rect):
 		return
 	
 	# Load image:
@@ -38,19 +39,21 @@ func _on_set():
 	var image := _load_image_texture_from_buffer(image_buffer)
 	_texture_rect.texture = image
 	
+	# Filename and dimensions:
 	var texture_size := image.get_size()
 	image_size = texture_size
 	var filename := _image_path
 	var last_slash_idx := filename.rfind("/")
 	if last_slash_idx != -1:
 		filename = filename.substr(last_slash_idx + 1)
-	_label.text = "[%d] %s" % [texture_size.x, filename]
+	_filename_label.text = filename
+	_size_label.text = "%dx%d" % [texture_size.x, texture_size.y]
 	
 	valid = texture_size.x == texture_size.y and texture_size.x <= 256
 	if valid:
-		_label.add_theme_color_override("font_color", Color(1, 1, 1))
+		_filename_label.remove_theme_color_override("font_color")
 	else:
-		_label.add_theme_color_override("font_color", Color(1, 0, 0))
+		_filename_label.add_theme_color_override("font_color", Color(1, 0, 0))
 
 
 func _load_image_path_to_buffer(path: String) -> PackedByteArray:
