@@ -2,15 +2,15 @@
 extends Control
 
 
-@onready var _export_btn: Button = $"VBoxContainer/ExportButton"
-@onready var _images_container: VBoxContainer = $"VBoxContainer/ImagesContainer"
-
-
 @export var _image_item_prefab: PackedScene
 @export var _export_image_dialog_prefab: PackedScene
 
 
 var _image_items: Array[ImageItem] = []
+
+
+@onready var _export_btn: Button = $"VBoxContainer/ExportButton"
+@onready var _images_container: VBoxContainer = $"VBoxContainer/ImagesContainer"
 
 
 func _ready():
