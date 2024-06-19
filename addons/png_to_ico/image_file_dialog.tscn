@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://h0k5aosgkmfd"]
+
+[node name="ImageFileDialog" type="FileDialog"]
+title = "Open File(s)"
+initial_position = 2
+size = Vector2i(700, 500)
+ok_button_text = "Open"
+file_mode = 1
+access = 2
+filters = PackedStringArray("*.png; PNG")

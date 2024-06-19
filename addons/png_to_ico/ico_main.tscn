@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceyao6xcsu6v8"]
+
+[ext_resource type="Script" path="res://addons/ico_creator/ico_main.gd" id="1_5dma6"]
+[ext_resource type="Script" path="res://addons/ico_creator/select_button.gd" id="1_ty5bu"]
+[ext_resource type="PackedScene" uid="uid://db65jnk2v2dr7" path="res://addons/ico_creator/image_item.tscn" id="3_ijoxf"]
+[ext_resource type="PackedScene" uid="uid://dbqf1g2bfw75c" path="res://addons/ico_creator/export_file_dialog.tscn" id="3_ms61p"]
+
+[node name="IcoMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5dma6")
+_image_item_prefab = ExtResource("3_ijoxf")
+_export_image_dialog_prefab = ExtResource("3_ms61p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "ICO Creator"
+
+[node name="SelectButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Select Images"
+script = ExtResource("1_ty5bu")
+
+[node name="ImagesContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ExportButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+disabled = true
+text = "Export..."
+
+[connection signal="files_selected" from="VBoxContainer/SelectButton" to="." method="_on_select_button_files_selected"]
+[connection signal="pressed" from="VBoxContainer/SelectButton" to="VBoxContainer/SelectButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
