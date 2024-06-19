@@ -12,7 +12,6 @@ config_version=5
 
 config/name="Ico Plugin"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
 
 [editor_plugins]
 
