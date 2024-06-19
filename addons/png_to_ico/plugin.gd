@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 
-const ICOMain: PackedScene = preload("res://addons/ico_creator/ico_main.tscn")
+const ICOMain: PackedScene = preload("res://addons/png_to_ico/ico_main.tscn")
 const Title := "PNG to ICO"
 const Icon := "ImageTexture"
 

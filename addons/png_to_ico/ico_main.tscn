@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ceyao6xcsu6v8"]
 
-[ext_resource type="Script" path="res://addons/ico_creator/ico_main.gd" id="1_5dma6"]
-[ext_resource type="Script" path="res://addons/ico_creator/select_button.gd" id="1_ty5bu"]
-[ext_resource type="PackedScene" uid="uid://db65jnk2v2dr7" path="res://addons/ico_creator/image_item.tscn" id="3_ijoxf"]
-[ext_resource type="PackedScene" uid="uid://dbqf1g2bfw75c" path="res://addons/ico_creator/export_file_dialog.tscn" id="3_ms61p"]
+[ext_resource type="Script" path="res://addons/png_to_ico/ico_main.gd" id="1_0430j"]
+[ext_resource type="Script" path="res://addons/png_to_ico/select_button.gd" id="2_4aluy"]
+[ext_resource type="PackedScene" uid="uid://db65jnk2v2dr7" path="res://addons/png_to_ico/image_item.tscn" id="3_ijoxf"]
+[ext_resource type="PackedScene" uid="uid://dbqf1g2bfw75c" path="res://addons/png_to_ico/export_file_dialog.tscn" id="3_ms61p"]
 
 [node name="IcoMain" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5dma6")
+script = ExtResource("1_0430j")
 _image_item_prefab = ExtResource("3_ijoxf")
 _export_image_dialog_prefab = ExtResource("3_ms61p")
 
@@ -33,7 +33,7 @@ text = "ICO Creator"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Select Images"
-script = ExtResource("1_ty5bu")
+script = ExtResource("2_4aluy")
 
 [node name="ImagesContainer" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

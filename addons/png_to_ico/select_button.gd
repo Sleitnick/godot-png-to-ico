@@ -5,7 +5,7 @@ extends Button
 signal files_selected(paths: PackedStringArray)
 
 
-const ImageFileDialogPrefab = preload("res://addons/ico_creator/image_file_dialog.tscn")
+const ImageFileDialogPrefab = preload("res://addons/png_to_ico/image_file_dialog.tscn")
 
 
 var _dialog: FileDialog
