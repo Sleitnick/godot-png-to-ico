@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://db65jnk2v2dr7"]
 
-[ext_resource type="Script" path="res://addons/png_to_ico/image_item.gd" id="1_a1gj3"]
+[ext_resource type="Script" path="res://addons/png_to_ico/scripts/image_item.gd" id="1_7xvli"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qqh1n"]
 
 [node name="ImageItem" type="HBoxContainer"]
-script = ExtResource("1_a1gj3")
+script = ExtResource("1_7xvli")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
